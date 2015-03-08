@@ -9,7 +9,7 @@ public class Constants {
     public static final int GAME_HEIGHT = 800;
 
     //gravity values
-    public static final Vector2 WORLD_GRAVITY = new Vector2(0, -10);
+    public static final Vector2 WORLD_GRAVITY = new Vector2(0, -1);
 
     //ground values
     public static final float GROUND_X = 0;
@@ -22,7 +22,7 @@ public class Constants {
     public static final float SHIP_WIDTH = 1f;
     public static final float SHIP_HEIGHT = 1f;
     public static final float SHIP_X = 2;
-    public static final float SHIP_Y = GROUND_Y+GROUND_HEIGHT;
+    public static final float SHIP_Y = GROUND_Y+GROUND_HEIGHT*4;
     public static float SHIP_DENSITY = 0.5f;
 
 }
