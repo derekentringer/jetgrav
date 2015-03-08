@@ -1,10 +1,11 @@
 package com.derekentringer.jetgrav.stage;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.derekentringer.jetgrav.actor.GroundActor;
+import com.derekentringer.jetgrav.actor.ShipActor;
 import com.derekentringer.jetgrav.util.WorldUtils;
 
 public class GameStage extends Stage
@@ -13,8 +14,8 @@ public class GameStage extends Stage
     private static final int VIEWPORT_HEIGHT = 20;
 
     private World world;
-    private Body ground;
-    private Body ship;
+    private GroundActor ground;
+    private ShipActor ship;
 
     private final float TIME_STEP = 1/300f;
     private float accumulator = 0f;
@@ -23,12 +24,25 @@ public class GameStage extends Stage
     private Box2DDebugRenderer renderer;
 
     public GameStage() {
-        world = WorldUtils.createWorld();
-        ground = WorldUtils.createGround(world);
-        ship = WorldUtils.createShip(world);
-        renderer = new Box2DDebugRenderer();
-
+        setupWorld();
         setupCamera();
+        renderer = new Box2DDebugRenderer();
+    }
+
+    private void setupWorld() {
+        world = WorldUtils.createWorld();
+        setupGround();
+        setupShip();
+    }
+
+    private void setupGround() {
+        ground = new GroundActor(WorldUtils.createGround(world));
+        addActor(ground);
+    }
+
+    private void setupShip() {
+        ship = new ShipActor(WorldUtils.createShip(world));
+        addActor(ship);
     }
 
     private void setupCamera() {
