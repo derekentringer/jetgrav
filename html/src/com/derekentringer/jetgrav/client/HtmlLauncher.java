@@ -3,7 +3,7 @@ package com.derekentringer.jetgrav.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.derekentringer.jetgrav.JetGrav;
+import com.derekentringer.jetgrav.poc_JetGrav;
 
 public class HtmlLauncher extends GwtApplication {
 
@@ -14,6 +14,6 @@ public class HtmlLauncher extends GwtApplication {
 
         @Override
         public ApplicationListener getApplicationListener () {
-                return new JetGrav();
+                return new poc_JetGrav();
         }
 }
