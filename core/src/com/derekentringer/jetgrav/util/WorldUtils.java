@@ -23,4 +23,17 @@ public class WorldUtils {
         return body;
     }
 
+    public static Body createShip(World world) {
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(new Vector2(Constants.SHIP_X, Constants.SHIP_Y));
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(Constants.SHIP_WIDTH/2, Constants.SHIP_HEIGHT/2);
+        Body body = world.createBody(bodyDef);
+        body.createFixture(shape, Constants.SHIP_DENSITY);
+        body.resetMassData();
+        shape.dispose();
+        return body;
+    }
+
 }
