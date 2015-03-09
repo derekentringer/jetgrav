@@ -5,13 +5,17 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.ContactImpulse;
+import com.badlogic.gdx.physics.box2d.ContactListener;
+import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.derekentringer.jetgrav.actor.GroundActor;
 import com.derekentringer.jetgrav.actor.ShipActor;
 import com.derekentringer.jetgrav.util.WorldUtils;
 
-public class GameStage extends Stage
+public class GameStage extends Stage implements ContactListener
 {
     private static final int VIEWPORT_WIDTH = 13;
     private static final int VIEWPORT_HEIGHT = 20;
@@ -107,4 +111,24 @@ public class GameStage extends Stage
         getCamera().unproject(touchPoint.set(x, y, 0));
     }
 
+    @Override
+    public void beginContact(Contact contact) {
+
+    }
+
+    @Override
+    public void endContact(Contact contact) {
+
+    }
+
+    @Override
+    public void preSolve(Contact contact, Manifold oldManifold) {
+
+    }
+
+    @Override
+    public void postSolve(Contact contact, ContactImpulse impulse) {
+
+    }
+    
 }
