@@ -1,6 +1,9 @@
 package com.derekentringer.jetgrav.stage;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -23,9 +26,13 @@ public class GameStage extends Stage
     private OrthographicCamera camera;
     private Box2DDebugRenderer renderer;
 
+    private Rectangle screenLeftSide;
+    private Vector3 touchPoint;
+
     public GameStage() {
         setupWorld();
         setupCamera();
+        setupLeftTouch();
         renderer = new Box2DDebugRenderer();
     }
 
@@ -51,6 +58,12 @@ public class GameStage extends Stage
         camera.update();
     }
 
+    private void setupLeftTouch() {
+        touchPoint = new Vector3();
+        screenLeftSide = new Rectangle(getCamera().viewportWidth/2, getCamera().viewportWidth/2, 0, getCamera().viewportHeight);
+        Gdx.input.setInputProcessor(this);
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
@@ -70,6 +83,28 @@ public class GameStage extends Stage
     public void draw() {
         super.draw();
         renderer.render(world, camera.combined);
+    }
+
+    @Override
+    public boolean touchDown(int x, int y, int pointer, int button) {
+        translateScreenToWorldCoordinates(x, y);
+        if(leftSideTouched(touchPoint.x, touchPoint.y)) {
+            ship.thrust();
+        }
+        return super.touchDown(x, y, pointer, button);
+    }
+
+    private boolean leftSideTouched(float x, float y) {
+        return screenLeftSide.contains(x, y);
+    }
+
+    /**
+     * Helper function to get the actual coordinates in the world
+     * @param x
+     * @param y
+     */
+    private void translateScreenToWorldCoordinates(int x, int y) {
+        getCamera().unproject(touchPoint.set(x, y, 0));
     }
 
 }
