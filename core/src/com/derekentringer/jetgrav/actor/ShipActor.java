@@ -14,7 +14,9 @@ public class ShipActor extends BaseActor {
         return (ShipUserData) userData;
     }
 
-    //TODO add functionality to move here
+    public void gotHit() {
+        //TODO handle getting hit
+    }
 
     public void thrust() {
         body.applyForce(getUserData().getThrustImpulse(), getUserData().getThrustImpulse(), false);

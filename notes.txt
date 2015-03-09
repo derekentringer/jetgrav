@@ -1,0 +1,7 @@
+- debug the begin contact
+- i added the userdata models to the utils...which should solve previous...need to debug
+- bodyUtils fixes if needed
+- add leftsidetouched implementations
+- hook touch into thrust
+- thrust is going to cause problems using 
+- hook touch into shooting

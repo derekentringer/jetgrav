@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.derekentringer.jetgrav.actor.GroundActor;
 import com.derekentringer.jetgrav.actor.ShipActor;
+import com.derekentringer.jetgrav.util.BodyUtils;
 import com.derekentringer.jetgrav.util.WorldUtils;
 
 public class GameStage extends Stage implements ContactListener
@@ -42,6 +44,7 @@ public class GameStage extends Stage implements ContactListener
 
     private void setupWorld() {
         world = WorldUtils.createWorld();
+        world.setContactListener(this);
         setupGround();
         setupShip();
     }
@@ -113,7 +116,12 @@ public class GameStage extends Stage implements ContactListener
 
     @Override
     public void beginContact(Contact contact) {
+        Body a = contact.getFixtureA().getBody();
+        Body b = contact.getFixtureB().getBody();
 
+        if((BodyUtils.bodyIsShip(a) && BodyUtils.bodyIsGround(b)) || (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsShip(b))) {
+            ship.gotHit();
+        }
     }
 
     @Override
@@ -130,5 +138,5 @@ public class GameStage extends Stage implements ContactListener
     public void postSolve(Contact contact, ContactImpulse impulse) {
 
     }
-    
+
 }
