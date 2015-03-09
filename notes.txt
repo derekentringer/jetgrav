@@ -1,7 +1,9 @@
-- debug the begin contact
-- i added the userdata models to the utils...which should solve previous...need to debug
-- bodyUtils fixes if needed
-- add leftsidetouched implementations
-- hook touch into thrust
-- thrust is going to cause problems using 
+- begin contact is working after WorldUtils fix
+- add leftsidetouched/rightsidetouched implementations
+- hook touch into thrust for leftside
+- hook touch into fire for right side
+- thrust is going to cause problems using body.applyForce() in ShipActor props
 - hook touch into shooting
+- add some graphics
+- start on some levels
+- set camera to follow the ship
