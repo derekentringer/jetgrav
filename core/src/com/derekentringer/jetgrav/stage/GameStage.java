@@ -84,7 +84,7 @@ public class GameStage extends Stage implements ContactListener
         }
 
         //TODO interpolation
-        
+
     }
 
     @Override
