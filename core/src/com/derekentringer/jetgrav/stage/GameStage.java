@@ -67,7 +67,7 @@ public class GameStage extends Stage implements ContactListener
 
     private void setupLeftTouch() {
         touchPoint = new Vector3();
-        screenLeftSide = new Rectangle(getCamera().viewportWidth/2, getCamera().viewportWidth/2, 0, getCamera().viewportHeight);
+        screenLeftSide = new Rectangle(getCamera().viewportWidth/2, getCamera().viewportHeight/2, 0, getCamera().viewportHeight);
         Gdx.input.setInputProcessor(this);
     }
 
