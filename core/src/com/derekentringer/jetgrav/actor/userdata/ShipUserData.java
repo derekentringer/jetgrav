@@ -11,10 +11,9 @@ public class ShipUserData extends UserData {
     public ShipUserData() {
         super();
 
-        //TODO set other params for ship here
-        thrustImpulse = Constants.SHIP_THRUST_IMPULSE;
-
         userDataType = UserDataType.SHIP;
+
+        thrustImpulse = Constants.SHIP_THRUST_IMPULSE;
     }
 
     public Vector2 getThrustImpulse() {
