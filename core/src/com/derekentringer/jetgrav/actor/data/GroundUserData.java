@@ -1,6 +1,4 @@
-package com.derekentringer.jetgrav.actor.userdata;
-
-import com.derekentringer.jetgrav.actor.enums.UserData;
+package com.derekentringer.jetgrav.actor.data;
 
 public class GroundUserData extends UserData {
 

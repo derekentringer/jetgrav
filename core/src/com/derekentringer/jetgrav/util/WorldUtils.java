@@ -5,8 +5,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.derekentringer.jetgrav.actor.userdata.GroundUserData;
-import com.derekentringer.jetgrav.actor.userdata.ShipUserData;
+import com.derekentringer.jetgrav.actor.data.GroundUserData;
+import com.derekentringer.jetgrav.actor.data.ShipUserData;
+import com.derekentringer.jetgrav.util.constant.Constants;
 
 public class WorldUtils {
 

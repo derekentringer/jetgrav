@@ -1,6 +1,4 @@
-package com.derekentringer.jetgrav.actor.enums;
-
-import com.derekentringer.jetgrav.actor.userdata.UserDataType;
+package com.derekentringer.jetgrav.actor.data;
 
 public abstract class UserData {
 

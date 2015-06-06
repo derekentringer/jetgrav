@@ -1,8 +1,8 @@
 package com.derekentringer.jetgrav.util;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.derekentringer.jetgrav.actor.enums.UserData;
-import com.derekentringer.jetgrav.actor.userdata.UserDataType;
+import com.derekentringer.jetgrav.actor.data.UserData;
+import com.derekentringer.jetgrav.actor.data.UserDataType;
 
 public class BodyUtils {
 

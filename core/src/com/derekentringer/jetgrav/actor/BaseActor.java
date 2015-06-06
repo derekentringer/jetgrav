@@ -2,7 +2,7 @@ package com.derekentringer.jetgrav.actor;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.derekentringer.jetgrav.actor.enums.UserData;
+import com.derekentringer.jetgrav.actor.data.UserData;
 
 public abstract class BaseActor extends Actor {
 

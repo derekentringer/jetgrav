@@ -1,7 +1,7 @@
 package com.derekentringer.jetgrav.actor;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.derekentringer.jetgrav.actor.userdata.ShipUserData;
+import com.derekentringer.jetgrav.actor.data.ShipUserData;
 
 public class ShipActor extends BaseActor {
 
