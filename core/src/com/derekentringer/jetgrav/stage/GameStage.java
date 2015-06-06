@@ -17,8 +17,7 @@ import com.derekentringer.jetgrav.actor.ShipActor;
 import com.derekentringer.jetgrav.util.BodyUtils;
 import com.derekentringer.jetgrav.util.WorldUtils;
 
-public class GameStage extends Stage implements ContactListener
-{
+public class GameStage extends Stage implements ContactListener {
     private static final int VIEWPORT_WIDTH = 13;
     private static final int VIEWPORT_HEIGHT = 20;
 
@@ -26,7 +25,7 @@ public class GameStage extends Stage implements ContactListener
     private GroundActor ground;
     private ShipActor ship;
 
-    private final float TIME_STEP = 1/300f;
+    private final float TIME_STEP = 1 / 300f;
     private float accumulator = 0f;
 
     private OrthographicCamera camera;
@@ -61,13 +60,13 @@ public class GameStage extends Stage implements ContactListener
 
     private void setupCamera() {
         camera = new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
-        camera.position.set(camera.viewportWidth/2, camera.viewportHeight/2, 0f);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0f);
         camera.update();
     }
 
     private void setupLeftTouch() {
         touchPoint = new Vector3();
-        screenLeftSide = new Rectangle(getCamera().viewportWidth/2, getCamera().viewportHeight/2, 0, getCamera().viewportHeight);
+        screenLeftSide = new Rectangle(getCamera().viewportWidth / 2, getCamera().viewportHeight / 2, 0, getCamera().viewportHeight);
         Gdx.input.setInputProcessor(this);
     }
 
@@ -78,7 +77,7 @@ public class GameStage extends Stage implements ContactListener
         //fixed timestep
         accumulator += delta;
 
-        while(accumulator >= delta) {
+        while (accumulator >= delta) {
             world.step(TIME_STEP, 6, 2);
             accumulator -= TIME_STEP;
         }
@@ -96,7 +95,7 @@ public class GameStage extends Stage implements ContactListener
     @Override
     public boolean touchDown(int x, int y, int pointer, int button) {
         translateScreenToWorldCoordinates(x, y);
-        if(leftSideTouched(touchPoint.x, touchPoint.y)) {
+        if (leftSideTouched(touchPoint.x, touchPoint.y)) {
             ship.thrust();
         }
         return super.touchDown(x, y, pointer, button);
@@ -108,6 +107,7 @@ public class GameStage extends Stage implements ContactListener
 
     /**
      * Helper function to get the actual coordinates in the world
+     *
      * @param x
      * @param y
      */
@@ -120,7 +120,7 @@ public class GameStage extends Stage implements ContactListener
         Body a = contact.getFixtureA().getBody();
         Body b = contact.getFixtureB().getBody();
 
-        if((BodyUtils.bodyIsShip(a) && BodyUtils.bodyIsGround(b)) || (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsShip(b))) {
+        if ((BodyUtils.bodyIsShip(a) && BodyUtils.bodyIsGround(b)) || (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsShip(b))) {
             ship.gotHit();
         }
     }

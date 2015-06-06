@@ -22,7 +22,7 @@ public class WorldUtils {
         bodyDef.position.set(new Vector2(GroundConstants.GROUND_X, GroundConstants.GROUND_Y));
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(GroundConstants.GROUND_WIDTH/2, GroundConstants.GROUND_HEIGHT/2);
+        shape.setAsBox(GroundConstants.GROUND_WIDTH / 2, GroundConstants.GROUND_HEIGHT / 2);
         body.createFixture(shape, GroundConstants.GROUND_DENSITY);
         body.setUserData(new GroundUserData());
         shape.dispose();
@@ -34,7 +34,7 @@ public class WorldUtils {
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(new Vector2(ShipConstants.SHIP_X, ShipConstants.SHIP_Y));
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(ShipConstants.SHIP_WIDTH/2, ShipConstants.SHIP_HEIGHT/2);
+        shape.setAsBox(ShipConstants.SHIP_WIDTH / 2, ShipConstants.SHIP_HEIGHT / 2);
         Body body = world.createBody(bodyDef);
         body.createFixture(shape, ShipConstants.SHIP_DENSITY);
         body.resetMassData();
