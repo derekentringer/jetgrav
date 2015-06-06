@@ -9,11 +9,11 @@ public abstract class BaseActor extends Actor {
     protected Body body;
     protected UserData userData;
 
+    public abstract UserData getUserData();
+
     public BaseActor(Body body) {
         this.body = body;
         this.userData = (UserData) body.getUserData();
     }
-
-    public abstract UserData getUserData();
 
 }

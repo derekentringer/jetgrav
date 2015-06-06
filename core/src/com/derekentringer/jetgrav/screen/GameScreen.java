@@ -22,6 +22,7 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         //Clear the screen
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         //Update the stage
         stage.draw();
         stage.act(delta);

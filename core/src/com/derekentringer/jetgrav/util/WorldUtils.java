@@ -7,21 +7,23 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.derekentringer.jetgrav.actor.data.GroundUserData;
 import com.derekentringer.jetgrav.actor.data.ShipUserData;
-import com.derekentringer.jetgrav.util.constant.Constants;
+import com.derekentringer.jetgrav.util.constant.GroundConstants;
+import com.derekentringer.jetgrav.util.constant.ShipConstants;
+import com.derekentringer.jetgrav.util.constant.WorldConstants;
 
 public class WorldUtils {
 
     public static World createWorld() {
-        return new World(Constants.WORLD_GRAVITY, true);
+        return new World(WorldConstants.WORLD_ONE_GRAVITY, true);
     }
 
     public static Body createGround(World world) {
         BodyDef bodyDef = new BodyDef();
-        bodyDef.position.set(new Vector2(Constants.GROUND_X, Constants.GROUND_Y));
+        bodyDef.position.set(new Vector2(GroundConstants.GROUND_X, GroundConstants.GROUND_Y));
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(Constants.GROUND_WIDTH/2, Constants.GROUND_HEIGHT/2);
-        body.createFixture(shape, Constants.GROUND_DENSITY);
+        shape.setAsBox(GroundConstants.GROUND_WIDTH/2, GroundConstants.GROUND_HEIGHT/2);
+        body.createFixture(shape, GroundConstants.GROUND_DENSITY);
         body.setUserData(new GroundUserData());
         shape.dispose();
         return body;
@@ -30,11 +32,11 @@ public class WorldUtils {
     public static Body createShip(World world) {
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(new Vector2(Constants.SHIP_X, Constants.SHIP_Y));
+        bodyDef.position.set(new Vector2(ShipConstants.SHIP_X, ShipConstants.SHIP_Y));
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(Constants.SHIP_WIDTH/2, Constants.SHIP_HEIGHT/2);
+        shape.setAsBox(ShipConstants.SHIP_WIDTH/2, ShipConstants.SHIP_HEIGHT/2);
         Body body = world.createBody(bodyDef);
-        body.createFixture(shape, Constants.SHIP_DENSITY);
+        body.createFixture(shape, ShipConstants.SHIP_DENSITY);
         body.resetMassData();
         body.setUserData(new ShipUserData());
         shape.dispose();

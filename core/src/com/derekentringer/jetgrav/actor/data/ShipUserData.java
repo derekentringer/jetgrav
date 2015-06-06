@@ -1,7 +1,7 @@
 package com.derekentringer.jetgrav.actor.data;
 
 import com.badlogic.gdx.math.Vector2;
-import com.derekentringer.jetgrav.util.constant.Constants;
+import com.derekentringer.jetgrav.util.constant.ShipConstants;
 
 public class ShipUserData extends UserData {
 
@@ -12,7 +12,7 @@ public class ShipUserData extends UserData {
 
         userDataType = UserDataType.SHIP;
 
-        mThrustImpulse = Constants.SHIP_THRUST_IMPULSE;
+        mThrustImpulse = ShipConstants.SHIP_THRUST_IMPULSE;
     }
 
     public Vector2 getThrustImpulse() {
