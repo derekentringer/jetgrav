@@ -9,9 +9,7 @@ public class ShipUserData extends UserData {
 
     public ShipUserData() {
         super();
-
         userDataType = UserDataType.SHIP;
-
         mThrustImpulse = ShipConstants.SHIP_THRUST_IMPULSE;
     }
 

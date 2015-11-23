@@ -18,6 +18,7 @@ import com.derekentringer.jetgrav.util.BodyUtils;
 import com.derekentringer.jetgrav.util.WorldUtils;
 
 public class GameStage extends Stage implements ContactListener {
+
     private static final int VIEWPORT_WIDTH = 13;
     private static final int VIEWPORT_HEIGHT = 20;
 
